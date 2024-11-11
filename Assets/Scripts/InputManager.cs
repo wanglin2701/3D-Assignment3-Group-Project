@@ -6,8 +6,10 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput;
-    private PlayerInput.OnFootActions onFoot;
+    public PlayerInput.OnFootActions onFoot;
     private PlayerMotor motor;
+    private PlayerLook look;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -15,6 +17,7 @@ public class InputManager : MonoBehaviour
         onFoot = playerInput.OnFoot;
         motor = GetComponent<PlayerMotor>();
         onFoot.Jump.performed += ctx => motor.Jump();
+        look = GetComponent<PlayerLook>();
     }
 
     // Update is called once per frame
@@ -23,10 +26,17 @@ public class InputManager : MonoBehaviour
         //tell the playermotor to mvoe using the value from our movement action
         motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
     }
+
+    void LateUpdate()
+    {
+        look.ProcessLook(onFoot.Look.ReadValue<Vector2>());
+    }
+
     private void OnEnable()
     {
         onFoot.Enable();
     }
+
     private void OnDisable()
     {
         onFoot.Disable();

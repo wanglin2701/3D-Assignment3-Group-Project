@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLook : MonoBehaviour
+public class Keypad : Interactable
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,11 @@ public class PlayerLook : MonoBehaviour
     void Update()
     {
         
+    }
+
+    //this function is where the interaction will be designed using code
+    protected override void Interact()
+    {
+        Debug.Log("Interacted with" + gameObject.name);
     }
 }
