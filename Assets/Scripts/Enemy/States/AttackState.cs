@@ -34,6 +34,7 @@ public class AttackState : BaseState
                 enemy.transform.rotation = Quaternion.LookRotation(directionToPlayer);
             }
 
+
             //enemy.transform.LookAt(enemy.Player.transform);
             //if shot timer > fireRate
             if (shotTimer > enemy.fireRate)
@@ -45,14 +46,17 @@ public class AttackState : BaseState
                 enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 5));
                 moveTimer = 0;
             }
+
+            enemy.LastKnowPos = enemy.Player.transform.position;
+
         }
-        else
+        else // lost sight of player
         {
             losePlayerTimer += Time.deltaTime;
-            if (losePlayerTimer > 8)
+            if (losePlayerTimer > 3)
             {
                 //Change to the search state
-                stateMachine.ChangeState(new PatrolState());
+                stateMachine.ChangeState(new SearchState());
             }
         }
     }
