@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -8,18 +6,23 @@ public class EnemyHealth : MonoBehaviour
     private float lerpTimer;
     private float damageTimer;
 
-    [Header("Health Bar")]
+    [Header("Health Bar Settings")]
     public float maxHealth = 100;
     public float chipSpeed = 2f;
-    public Image frontHealthBar;
-    public Image backHealthBar;
-    public Canvas healthUICanvas; // Assign the Canvas containing the health bar in the Inspector.
-    public float hideUIAfterSeconds = 2f; // Time before hiding the UI.
+    public Transform healthBarCanvas; // Assign the Canvas containing the health bar
+    public Transform healthBarPosition; // Optional: Specify where the health bar should appear above the enemy's head
+    public UnityEngine.UI.Image frontHealthBar; // Foreground of the health bar
+    public UnityEngine.UI.Image backHealthBar;  // Background of the health bar
+    public float hideUIAfterSeconds = 2f; // Time before hiding the health bar
 
     void Start()
     {
         health = maxHealth;
-        healthUICanvas.enabled = false; // Initially, hide the health UI.
+        if (healthBarCanvas != null)
+        {
+            healthBarCanvas.gameObject.SetActive(false); // Initially hide the health bar
+        }
+        LateUpdate();
     }
 
     void Update()
@@ -27,14 +30,20 @@ public class EnemyHealth : MonoBehaviour
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
 
-        // Hide the health UI after not taking damage for a certain duration.
+        // Hide the health bar if the enemy hasn't received damage for a while
         if (damageTimer > 0)
         {
             damageTimer -= Time.deltaTime;
-            if (damageTimer <= 0)
+            if (damageTimer <= 0 && healthBarCanvas != null)
             {
-                healthUICanvas.enabled = false;
+                healthBarCanvas.gameObject.SetActive(false);
             }
+        }
+
+        // Optional: Update health bar position above the enemy
+        if (healthBarCanvas != null && healthBarPosition != null)
+        {
+            healthBarCanvas.position = healthBarPosition.position;
         }
     }
 
@@ -58,7 +67,6 @@ public class EnemyHealth : MonoBehaviour
             backHealthBar.fillAmount = hFraction;
             lerpTimer += Time.deltaTime;
             float percentComplete = lerpTimer / chipSpeed;
-            percentComplete *= percentComplete; // Accelerate over time.
             frontHealthBar.fillAmount = Mathf.Lerp(fillF, backHealthBar.fillAmount, percentComplete);
         }
     }
@@ -68,8 +76,29 @@ public class EnemyHealth : MonoBehaviour
         health -= damage;
         lerpTimer = 0f;
 
-        // Show the health UI and reset the hide timer.
-        healthUICanvas.enabled = true;
+        // Show the health bar and reset the hide timer
+        if (healthBarCanvas != null)
+        {
+            healthBarCanvas.gameObject.SetActive(true);
+        }
         damageTimer = hideUIAfterSeconds;
     }
+
+    void LateUpdate()
+    {
+        if (Camera.main != null)
+        {
+            // Ensure the health bar canvas is always facing the camera
+            healthBarCanvas.LookAt(Camera.main.transform);
+            healthBarCanvas.Rotate(0, 180, 0); // Flip to face the camera if needed
+            
+            // Adjust position to be above the enemy's head
+            if (healthBarPosition != null)
+            {
+                // Update the health bar position above the enemy's head
+                healthBarCanvas.position = healthBarPosition.position;
+            }
+        }
+    }
+
 }
