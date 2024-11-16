@@ -23,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
             healthBarCanvas.gameObject.SetActive(false); // Initially hide the health bar
         }
         LateUpdate();
+        
     }
 
     void Update()
@@ -63,7 +64,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (fillF < hFraction)
         {
-            backHealthBar.color = Color.green;
+            backHealthBar.color = Color.red;
             backHealthBar.fillAmount = hFraction;
             lerpTimer += Time.deltaTime;
             float percentComplete = lerpTimer / chipSpeed;

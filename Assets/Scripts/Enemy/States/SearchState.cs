@@ -6,30 +6,35 @@ public class SearchState : BaseState
 {
     private float moveTimer;
     private float searchTimer;
+    private float originalSpeed;
+
     public override void Enter()
     {
+        originalSpeed = enemy.Agent.speed;
+        enemy.Agent.speed *= 1.5f; // Increase speed for searching
         enemy.Agent.SetDestination(enemy.LastKnowPos);
     }
 
     public override void Perform()
     {
-        // if enemy can see player, attack player
-        if (enemy.CanSeePlayer()) 
+        if (enemy.CanSeePlayer())
+        {
             stateMachine.ChangeState(new AttackState());
-        
-        // if the enemy arrived at the player's last known position, increment search timer
-        if(enemy.Agent.remainingDistance < enemy.Agent.stoppingDistance)
+            return;
+        }
+
+        if (enemy.Agent.remainingDistance < enemy.Agent.stoppingDistance)
         {
             searchTimer += Time.deltaTime;
             moveTimer += Time.deltaTime;
+
             if (moveTimer > Random.Range(3, 5))
             {
                 enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 10));
                 moveTimer = 0;
             }
 
-            // if the enemy search long enough, return to patrol state
-            if(searchTimer > 10)
+            if (searchTimer > 10)
             {
                 stateMachine.ChangeState(new PatrolState());
             }
@@ -38,6 +43,6 @@ public class SearchState : BaseState
 
     public override void Exit()
     {
-        
+        enemy.Agent.speed = originalSpeed; // Reset speed
     }
 }
