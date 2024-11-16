@@ -80,6 +80,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CrouchStart"",
+                    ""type"": ""Button"",
+                    ""id"": ""ce48a893-7a29-403a-a45b-7a0cc5ce5892"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CrouchFinished"",
+                    ""type"": ""Button"",
+                    ""id"": ""539dd690-d4d6-42d1-a2f4-5d1335ad702f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -278,6 +296,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SprintFinish"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a122ce7a-dcfe-4fdf-89f2-6a63320c0f3f"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CrouchStart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""139c2aad-dd2a-4546-b6aa-41960343f8ef"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CrouchFinished"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -810,6 +850,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
         m_OnFoot_SprintStart = m_OnFoot.FindAction("SprintStart", throwIfNotFound: true);
         m_OnFoot_SprintFinish = m_OnFoot.FindAction("SprintFinish", throwIfNotFound: true);
+        m_OnFoot_CrouchStart = m_OnFoot.FindAction("CrouchStart", throwIfNotFound: true);
+        m_OnFoot_CrouchFinished = m_OnFoot.FindAction("CrouchFinished", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -889,6 +931,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Interact;
     private readonly InputAction m_OnFoot_SprintStart;
     private readonly InputAction m_OnFoot_SprintFinish;
+    private readonly InputAction m_OnFoot_CrouchStart;
+    private readonly InputAction m_OnFoot_CrouchFinished;
     public struct OnFootActions
     {
         private @PlayerInput m_Wrapper;
@@ -899,6 +943,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_OnFoot_Interact;
         public InputAction @SprintStart => m_Wrapper.m_OnFoot_SprintStart;
         public InputAction @SprintFinish => m_Wrapper.m_OnFoot_SprintFinish;
+        public InputAction @CrouchStart => m_Wrapper.m_OnFoot_CrouchStart;
+        public InputAction @CrouchFinished => m_Wrapper.m_OnFoot_CrouchFinished;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -926,6 +972,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @SprintFinish.started += instance.OnSprintFinish;
             @SprintFinish.performed += instance.OnSprintFinish;
             @SprintFinish.canceled += instance.OnSprintFinish;
+            @CrouchStart.started += instance.OnCrouchStart;
+            @CrouchStart.performed += instance.OnCrouchStart;
+            @CrouchStart.canceled += instance.OnCrouchStart;
+            @CrouchFinished.started += instance.OnCrouchFinished;
+            @CrouchFinished.performed += instance.OnCrouchFinished;
+            @CrouchFinished.canceled += instance.OnCrouchFinished;
         }
 
         private void UnregisterCallbacks(IOnFootActions instance)
@@ -948,6 +1000,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @SprintFinish.started -= instance.OnSprintFinish;
             @SprintFinish.performed -= instance.OnSprintFinish;
             @SprintFinish.canceled -= instance.OnSprintFinish;
+            @CrouchStart.started -= instance.OnCrouchStart;
+            @CrouchStart.performed -= instance.OnCrouchStart;
+            @CrouchStart.canceled -= instance.OnCrouchStart;
+            @CrouchFinished.started -= instance.OnCrouchFinished;
+            @CrouchFinished.performed -= instance.OnCrouchFinished;
+            @CrouchFinished.canceled -= instance.OnCrouchFinished;
         }
 
         public void RemoveCallbacks(IOnFootActions instance)
@@ -1091,6 +1149,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnSprintStart(InputAction.CallbackContext context);
         void OnSprintFinish(InputAction.CallbackContext context);
+        void OnCrouchStart(InputAction.CallbackContext context);
+        void OnCrouchFinished(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

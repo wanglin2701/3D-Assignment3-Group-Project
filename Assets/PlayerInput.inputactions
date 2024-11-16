@@ -58,6 +58,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CrouchStart",
+                    "type": "Button",
+                    "id": "ce48a893-7a29-403a-a45b-7a0cc5ce5892",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CrouchFinished",
+                    "type": "Button",
+                    "id": "539dd690-d4d6-42d1-a2f4-5d1335ad702f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -256,6 +274,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "SprintFinish",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a122ce7a-dcfe-4fdf-89f2-6a63320c0f3f",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CrouchStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "139c2aad-dd2a-4546-b6aa-41960343f8ef",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CrouchFinished",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -7,20 +7,29 @@ public class PlayerMotor : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     public bool isGrounded;
-    public float speed = 5f;             // Normal walking speed
-    public float sprintSpeed = 10f;     // Sprinting speed
+    public float speed = 5f;            // Normal walking speed
+    public float sprintSpeed = 10f;    // Sprinting speed
+    public float crouchSpeed = 2f;     // Crouching speed
     public float gravity = -9.8f;
     public float jumpHeight = 3f;
-    
-    private float currentSpeed;         // Tracks the player's current speed
-    private InputManager inputManager;  // Reference to the InputManager
+
+    private float currentSpeed;        // Tracks the player's current speed
+    private InputManager inputManager; // Reference to the InputManager
+
+    public float crouchHeight = 1f;    // Height of the character when crouching
+    private float originalHeight;      // Original height of the character
+    public float heightTransitionSpeed = 8f; // Speed of height transition
+
+    private float targetHeight;        // Target height for smooth transitions
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         inputManager = GetComponent<InputManager>(); // Get the InputManager reference
-        currentSpeed = speed; // Initialize the speed to walking speed
+        currentSpeed = speed;                        // Initialize the speed to walking speed
+        originalHeight = controller.height;          // Store the original height of the player
+        targetHeight = originalHeight;               // Set initial target height
     }
 
     // Update is called once per frame
@@ -28,8 +37,25 @@ public class PlayerMotor : MonoBehaviour
     {
         isGrounded = controller.isGrounded;
 
-        // Adjust speed based on whether the player is sprinting
-        currentSpeed = inputManager.isSprinting ? sprintSpeed : speed;
+        // Determine the player's speed and target height based on their current state
+        if (inputManager.isCrouching)
+        {
+            currentSpeed = crouchSpeed;
+            targetHeight = crouchHeight; // Set target height to crouch
+        }
+        else if (inputManager.isSprinting && !inputManager.isCrouching) // Ensure no conflict with crouch
+        {
+            currentSpeed = sprintSpeed;
+            targetHeight = originalHeight; // Set target height to stand
+        }
+        else
+        {
+            currentSpeed = speed;
+            targetHeight = originalHeight; // Set target height to stand
+        }
+
+        // Smoothly transition to the target height
+        controller.height = Mathf.Lerp(controller.height, targetHeight, Time.deltaTime * heightTransitionSpeed);
     }
 
     public void ProcessMove(Vector2 input)
@@ -52,7 +78,7 @@ public class PlayerMotor : MonoBehaviour
 
     public void Jump()
     {
-        if (isGrounded)
+        if (isGrounded && !inputManager.isCrouching) // Prevent jumping while crouching
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
         }

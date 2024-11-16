@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     private PlayerLook look;
 
     public bool isSprinting;
+    public bool isCrouching;
 
     // Start is called before the first frame update
     void Awake()
@@ -22,6 +23,8 @@ public class InputManager : MonoBehaviour
         look = GetComponent<PlayerLook>();
         onFoot.SprintStart.performed += x => SprintPressed();
         onFoot.SprintFinish.performed += x => SprintRelease();
+        onFoot.CrouchStart.performed += z => CrouchPressed();
+        onFoot.CrouchFinished.performed += z => CrouchReleased();
         
     }
 
@@ -45,6 +48,16 @@ public class InputManager : MonoBehaviour
     private void SprintRelease()
     {
         isSprinting = false;
+    }
+
+    private void CrouchPressed()
+    {
+        isCrouching = true;
+    }
+
+    private void CrouchReleased()
+    {
+        isCrouching = false;
     }
 
     private void OnEnable()
