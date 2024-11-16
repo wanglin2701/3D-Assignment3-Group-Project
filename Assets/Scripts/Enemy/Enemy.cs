@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public GameObject Player { get => player;}
     public Vector3 LastKnowPos { get => lastKnowPos; set => lastKnowPos = value;}
     public StateMachine StateMachine { get => stateMachine; }
+    public Animator animator;
     
     public EnemyPath enemyPath;
     [Header("Sight Values")]
@@ -36,6 +37,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         stateMachine.Initialise();
         player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

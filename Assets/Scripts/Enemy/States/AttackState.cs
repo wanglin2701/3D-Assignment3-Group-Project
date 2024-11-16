@@ -7,14 +7,17 @@ public class AttackState : BaseState
     private float moveTimer;
     private float losePlayerTimer;
     private float shotTimer;
+
     public override void Enter()
     {
-        
+        // Stop walking animation when attacking
+        enemy.animator.SetBool("isWalking", false);
     }
 
     public override void Exit()
     {
-        
+        // Optionally reset walking state when exiting the attack state
+        enemy.animator.SetBool("isWalking", false);
     }
 
     public override void Perform()
@@ -24,38 +27,49 @@ public class AttackState : BaseState
             losePlayerTimer = 0;
             moveTimer += Time.deltaTime;
             shotTimer += Time.deltaTime;
-            // Get the direction to the player, ignoring the y-axis
             Vector3 directionToPlayer = (enemy.Player.transform.position - enemy.transform.position);
-            directionToPlayer.y = 0; // Flatten the direction vector to avoid tilting
+            directionToPlayer.y = 0;
 
-            // Rotate the enemy to face the player horizontally
+            // Rotate to face the player
             if (directionToPlayer != Vector3.zero)
             {
                 enemy.transform.rotation = Quaternion.LookRotation(directionToPlayer);
             }
 
-
-            //enemy.transform.LookAt(enemy.Player.transform);
-            //if shot timer > fireRate
+            // Shoot logic
             if (shotTimer > enemy.fireRate)
             {
                 Shoot();
             }
+
+            // Movement logic (if the enemy is moving)
             if (moveTimer > Random.Range(3, 7))
             {
                 enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 5));
                 moveTimer = 0;
+
+                // Play walking animation if the agent is moving
+                if (enemy.Agent.velocity.sqrMagnitude > 0.1f)
+                {
+                    enemy.animator.SetBool("isWalking", true); // Play walking animation
+                }
+            }
+            else
+            {
+                // Ensure walking animation stops if standing still
+                if (enemy.Agent.velocity.sqrMagnitude < 0.1f)
+                {
+                    enemy.animator.SetBool("isWalking", false); // Stop walking animation
+                }
             }
 
             enemy.LastKnowPos = enemy.Player.transform.position;
-
         }
-        else // lost sight of player
+        else
         {
             losePlayerTimer += Time.deltaTime;
             if (losePlayerTimer > 3)
             {
-                //Change to the search state
                 stateMachine.ChangeState(new SearchState());
             }
         }
@@ -63,30 +77,18 @@ public class AttackState : BaseState
 
     public void Shoot()
     {
-        //store reference to the gun barrel
+        // Store reference to the gun barrel
         Transform gunBarrel = enemy.gunBarrel;
 
-        //instantiate a new bullet
+        // Instantiate a new bullet
         GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, gunBarrel.position, enemy.transform.rotation);
 
-        //calculate the direction to the player
+        // Calculate the direction to the player
         Vector3 shootDirection = (enemy.Player.transform.position - gunBarrel.transform.position).normalized;
 
-        //add force rigidbbody of the bullet
-        bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-3f,3f),Vector3.up) * shootDirection * 40;
+        // Add force to the rigidbody of the bullet
+        bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-3f, 3f), Vector3.up) * shootDirection * 40;
         Debug.Log("Shoot");
         shotTimer = 0;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

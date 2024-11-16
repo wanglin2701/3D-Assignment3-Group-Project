@@ -13,6 +13,9 @@ public class SearchState : BaseState
         originalSpeed = enemy.Agent.speed;
         enemy.Agent.speed *= 1.5f; // Increase speed for searching
         enemy.Agent.SetDestination(enemy.LastKnowPos);
+
+        // Ensure walking animation is triggered
+        enemy.animator.SetBool("isWalking", true);
     }
 
     public override void Perform()
@@ -39,10 +42,21 @@ public class SearchState : BaseState
                 stateMachine.ChangeState(new PatrolState());
             }
         }
+
+        // Update walking animation based on movement
+        if (enemy.Agent.velocity.sqrMagnitude > 0.1f)
+        {
+            enemy.animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            enemy.animator.SetBool("isWalking", false);
+        }
     }
 
     public override void Exit()
     {
         enemy.Agent.speed = originalSpeed; // Reset speed
+        enemy.animator.SetBool("isWalking", false); // Stop walking animation
     }
 }
