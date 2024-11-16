@@ -10,6 +10,8 @@ public class InputManager : MonoBehaviour
     private PlayerMotor motor;
     private PlayerLook look;
 
+    public bool isSprinting;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,6 +20,9 @@ public class InputManager : MonoBehaviour
         motor = GetComponent<PlayerMotor>();
         onFoot.Jump.performed += ctx => motor.Jump();
         look = GetComponent<PlayerLook>();
+        onFoot.SprintStart.performed += x => SprintPressed();
+        onFoot.SprintFinish.performed += x => SprintRelease();
+        
     }
 
     // Update is called once per frame
@@ -30,6 +35,16 @@ public class InputManager : MonoBehaviour
     void LateUpdate()
     {
         look.ProcessLook(onFoot.Look.ReadValue<Vector2>());
+    }
+
+    private void SprintPressed()
+    {
+        isSprinting = true;
+    }
+
+    private void SprintRelease()
+    {
+        isSprinting = false;
     }
 
     private void OnEnable()

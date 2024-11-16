@@ -40,6 +40,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SprintStart",
+                    "type": "Button",
+                    "id": "4dc41fb4-024b-4cae-adcd-48af7dd7f3ea",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SprintFinish",
+                    "type": "Button",
+                    "id": "281e7b02-93a5-4bf1-98d0-b6d0b3e7ad67",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -216,6 +234,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "580d3709-743b-4e37-be0f-4ff49d679616",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SprintStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d044eb09-9497-4952-80b5-f353293cca0c",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SprintFinish",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
