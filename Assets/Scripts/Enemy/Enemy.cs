@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent Agent { get => agent; }
     public GameObject Player { get => player;}
     public Vector3 LastKnowPos { get => lastKnowPos; set => lastKnowPos = value;}
+    public StateMachine StateMachine { get => stateMachine; }
     
     public EnemyPath enemyPath;
     [Header("Sight Values")]

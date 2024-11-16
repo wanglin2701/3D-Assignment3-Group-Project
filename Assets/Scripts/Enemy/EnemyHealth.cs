@@ -82,7 +82,16 @@ public class EnemyHealth : MonoBehaviour
             healthBarCanvas.gameObject.SetActive(true);
         }
         damageTimer = hideUIAfterSeconds;
+
+        // Notify the enemy's state machine to transition to SearchState
+        Enemy enemy = GetComponent<Enemy>();
+        if (enemy != null && enemy.StateMachine != null)
+        {
+            enemy.LastKnowPos = enemy.Player.transform.position; // Update last known player position
+            enemy.StateMachine.ChangeState(new SearchState());
+        }
     }
+
 
     void LateUpdate()
     {
