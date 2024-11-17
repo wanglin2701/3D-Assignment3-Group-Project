@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class AimingScript : MonoBehaviour
 {
-    public GameObject playerGun;
+    public GameObject playerGun;  // The player's gun GameObject
+    private Animator gunAnimator; // Animator for the gun
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gunAnimator = playerGun.GetComponent<Animator>(); // Get the Animator component
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1)) // Start aiming
         {
-            playerGun.GetComponent<Animator>().Play("AimDown");
+            gunAnimator.SetFloat("AimSpeed", 1); // Normal speed
+            gunAnimator.Play("AimDown", -1, 0);  // Play from the start
         }
-        if(Input.GetMouseButtonUp(1))
+        else if (Input.GetMouseButtonUp(1)) // Reverse aiming animation
         {
-            playerGun.GetComponent<Animator>().Play("New State");
+            gunAnimator.SetFloat("AimSpeed", -1); // Reverse speed
+            gunAnimator.Play("AimDown", -1, 1);  // Play from the end
         }
     }
 }
