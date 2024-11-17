@@ -6,6 +6,7 @@ public abstract class BaseState
     //instance of statemachine class
 
     public Enemy enemy;
+    public MeleeEnemy meleeEnemy;
     public StateMachine stateMachine;
 
     public abstract void Enter();

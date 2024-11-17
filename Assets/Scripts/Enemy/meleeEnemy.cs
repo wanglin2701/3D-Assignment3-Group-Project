@@ -3,38 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class MeleeEnemy : MonoBehaviour
 {
     private StateMachine stateMachine;
     private NavMeshAgent agent;
     private GameObject player;
     private Vector3 lastKnowPos;
     public NavMeshAgent Agent { get => agent; }
-    public GameObject Player { get => player;}
-    public Vector3 LastKnowPos { get => lastKnowPos; set => lastKnowPos = value;}
+    public GameObject Player { get => player; }
+    public Vector3 LastKnowPos { get => lastKnowPos; set => lastKnowPos = value; }
     public StateMachine StateMachine { get => stateMachine; }
     public Animator animator;
-    
+
     public EnemyPath enemyPath;
-    
     [Header("Sight Values")]
     public float sightDistance = 20f;
     public float fieldOfView = 85f;
     public float eyeHeight;
 
-    [Header("Weapon Values")]
-    public Transform gunBarrel;
-    [Range(0.1f, 10f)]
-    public float fireRate;
+    [Header("Melee Attack Values")]
+    public float attackDamage = 10f; // Damage dealt to the player
+    public float attackCooldown = 1f; // Time between consecutive damage hits
 
-    // Attack damage, adjustable in inspector
-    [Range(1f, 100f)]
-    public float attackDamage = 10f;
+    private bool canAttack = true;
 
-    //Just for debugging purposes.
+    // For debugging
     [SerializeField]
     private string currentState;
-    
+
     void Start()
     {
         stateMachine = GetComponent<StateMachine>();
@@ -54,17 +50,18 @@ public class Enemy : MonoBehaviour
     {
         if (player != null)
         {
-            if(Vector3.Distance(transform.position, player.transform.position) < sightDistance)
+            // Is the player close enough to be seen?
+            if (Vector3.Distance(transform.position, player.transform.position) < sightDistance)
             {
                 Vector3 targetDirection = player.transform.position - transform.position - (Vector3.up * eyeHeight);
                 float angleToPlayer = Vector3.Angle(targetDirection, transform.forward);
-                if(angleToPlayer >= -fieldOfView && angleToPlayer <= fieldOfView)
+                if (angleToPlayer >= -fieldOfView && angleToPlayer <= fieldOfView)
                 {
                     Ray ray = new Ray(transform.position + (Vector3.up * eyeHeight), targetDirection);
                     RaycastHit hitInfo = new RaycastHit();
-                    if(Physics.Raycast(ray, out hitInfo, sightDistance))
+                    if (Physics.Raycast(ray, out hitInfo, sightDistance))
                     {
-                        if(hitInfo.transform.gameObject == player)
+                        if (hitInfo.transform.gameObject == player)
                         {
                             Debug.DrawRay(ray.origin, ray.direction * sightDistance);
                             return true;
@@ -74,5 +71,33 @@ public class Enemy : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && canAttack)
+        {
+            DealDamageToPlayer();
+        }
+    }
+
+    private void DealDamageToPlayer()
+    {
+        // Assuming the player has a script with a method to take damage
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(attackDamage);
+        }
+
+        // Cooldown before next attack
+        StartCoroutine(AttackCooldown());
+    }
+
+    private IEnumerator AttackCooldown()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
     }
 }

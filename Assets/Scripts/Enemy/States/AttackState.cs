@@ -10,13 +10,11 @@ public class AttackState : BaseState
 
     public override void Enter()
     {
-        // Stop walking animation when attacking
         enemy.animator.SetBool("isWalking", false);
     }
 
     public override void Exit()
     {
-        // Optionally reset walking state when exiting the attack state
         enemy.animator.SetBool("isWalking", false);
     }
 
@@ -42,7 +40,7 @@ public class AttackState : BaseState
                 Shoot();
             }
 
-            // Movement logic (if the enemy is moving)
+            // Movement logic
             if (moveTimer > Random.Range(3, 7))
             {
                 enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 5));
@@ -51,15 +49,14 @@ public class AttackState : BaseState
                 // Play walking animation if the agent is moving
                 if (enemy.Agent.velocity.sqrMagnitude > 0.1f)
                 {
-                    enemy.animator.SetBool("isWalking", true); // Play walking animation
+                    enemy.animator.SetBool("isWalking", true);
                 }
             }
             else
             {
-                // Ensure walking animation stops if standing still
                 if (enemy.Agent.velocity.sqrMagnitude < 0.1f)
                 {
-                    enemy.animator.SetBool("isWalking", false); // Stop walking animation
+                    enemy.animator.SetBool("isWalking", false);
                 }
             }
 
@@ -77,18 +74,22 @@ public class AttackState : BaseState
 
     public void Shoot()
     {
-        // Store reference to the gun barrel
         Transform gunBarrel = enemy.gunBarrel;
 
-        // Instantiate a new bullet
+        // Instantiate the bullet
         GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, gunBarrel.position, enemy.transform.rotation);
 
-        // Calculate the direction to the player
-        Vector3 shootDirection = (enemy.Player.transform.position - gunBarrel.transform.position).normalized;
+        // Set the attack damage on the bullet (using the unique value for this enemy)
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        if (bulletScript != null)
+        {
+            bulletScript.damage = enemy.attackDamage; // Set the damage of the bullet from the enemy's attackDamage
+        }
 
-        // Add force to the rigidbody of the bullet
+        Vector3 shootDirection = (enemy.Player.transform.position - gunBarrel.transform.position).normalized;
         bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-3f, 3f), Vector3.up) * shootDirection * 40;
-        Debug.Log("Shoot");
+
         shotTimer = 0;
     }
+
 }
