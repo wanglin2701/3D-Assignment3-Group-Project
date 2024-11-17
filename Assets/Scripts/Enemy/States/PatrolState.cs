@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using UnityEngine;
 
 public class PatrolState : BaseState
@@ -10,8 +9,14 @@ public class PatrolState : BaseState
 
     public override void Enter()
     {
-        // Optionally reset walking state when entering patrol
-        enemy.animator.SetBool("isWalking", true); // Set walking animation on
+        // Find the nearest waypoint
+        waypointIndex = FindNearestWaypointIndex();
+
+        // Set the agent's destination to the nearest waypoint
+        enemy.Agent.SetDestination(enemy.enemyPath.waypoints[waypointIndex].position);
+
+        // Reset the walking animation
+        enemy.animator.SetBool("isWalking", true); 
     }
 
     public override void Perform()
@@ -37,43 +42,46 @@ public class PatrolState : BaseState
 
     public override void Exit()
     {
-        // Optionally stop walking animation when exiting patrol state
-        enemy.animator.SetBool("isWalking", false); // Set walking animation off
+        // Stop the walking animation when exiting patrol state
+        enemy.animator.SetBool("isWalking", false); 
     }
 
     public void PatrolCycle()
     {
-        // The patrol logic
-        if (enemy.Agent.remainingDistance < 0.2f) // If the enemy has reached the current waypoint
+        // Patrol logic
+        if (enemy.Agent.remainingDistance < 0.2f) 
         {
             waitTimer += Time.deltaTime;
 
-            // Stop the walking animation when idle
-            if (waitTimer > 2)
+            if (waitTimer > 2) 
             {
-                enemy.animator.SetBool("isWalking", false); // Stop walking animation when paused
+                // Move to the next waypoint in the patrol route
+                waypointIndex = (waypointIndex + 1) % enemy.enemyPath.waypoints.Count;
 
-                if (waypointIndex < enemy.enemyPath.waypoints.Count - 1)
-                    waypointIndex++;
-                else
-                    waypointIndex = 0;
-
-                // Set new destination for the agent
+                // Set new destination
                 enemy.Agent.SetDestination(enemy.enemyPath.waypoints[waypointIndex].position);
+
                 waitTimer = 0;
             }
         }
-        else
+    }
+
+    private int FindNearestWaypointIndex()
+    {
+        int nearestIndex = 0;
+        float nearestDistance = float.MaxValue;
+
+        // Loop through all waypoints to find the closest one
+        for (int i = 0; i < enemy.enemyPath.waypoints.Count; i++)
         {
-            // Ensure the walking animation plays only when the agent is moving
-            if (enemy.Agent.velocity.sqrMagnitude > 0.1f) // Agent is moving
+            float distance = Vector3.Distance(enemy.transform.position, enemy.enemyPath.waypoints[i].position);
+            if (distance < nearestDistance)
             {
-                enemy.animator.SetBool("isWalking", true); // Set walking animation on
-            }
-            else
-            {
-                enemy.animator.SetBool("isWalking", false); // Stop walking animation if no movement
+                nearestDistance = distance;
+                nearestIndex = i;
             }
         }
+
+        return nearestIndex;
     }
 }
