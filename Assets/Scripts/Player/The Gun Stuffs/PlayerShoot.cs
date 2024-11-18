@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -17,8 +18,17 @@ public class PlayerShoot : MonoBehaviour
     public GameObject gunObject;    // The gun object to disable when no bullets are left
     public bool canShoot = false;   // Flag to check if the player can shoot (activated by power-up)
 
+    [Header("Camera Settings")]
+    public Camera playerCamera;     // Reference to the player's camera
+    public float zoomFOV = 40f;     // Field of View when zoomed in
+    public float normalFOV = 60f;   // Default Field of View
+    public float zoomSpeed = 10f;   // Speed at which the camera zooms in/out
+
+
     // Track aiming state
+    [SerializeField]
     private bool isAiming = false;
+    private bool isShooting = false;
 
     void Start()
     {
@@ -48,10 +58,21 @@ public class PlayerShoot : MonoBehaviour
         if (Input.GetMouseButton(1)) // Right mouse button for aiming
         {
             isAiming = true;
+            float targetFOV = isAiming ? zoomFOV : normalFOV;
+            playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, targetFOV, Time.deltaTime * zoomSpeed);
         }
-        else if (Input.GetMouseButtonUp(1))
+        
+        if (Input.GetMouseButtonUp(1))
         {
             isAiming = false;
+        }
+
+        // Set animator parameters based on states
+        if (gunAnimator != null)
+        {
+            // Update the "isRightMouseHolding" parameter in the animator
+            //if(isAiming) gunAnimator.SetTrigger("Test");
+            gunAnimator.SetBool("isRightMouseHolding", isAiming);
         }
 
         // Check if the player can shoot
@@ -62,44 +83,53 @@ public class PlayerShoot : MonoBehaviour
     }
 
     void Shoot()
-{
-    // Set the next fire time to enforce the fire rate cooldown
-    nextFireTime = Time.time + fireRate;
-
-    // Play the appropriate recoil animation
-    if (gunAnimator != null)
     {
-        if (isAiming)
-        {
-            // Ensure the Aim animation is playing, but it stays on the last frame (end keyframe)
-            gunAnimator.CrossFade("AimDown", 0.1f, 0, 1f);  // Start at the last frame of the "Aim" animation
+        // Set the next fire time to enforce the fire rate cooldown
+        nextFireTime = Time.time + fireRate;
 
-            // Play the recoil animation while aiming
-            gunAnimator.Play("AimAndShootRecoil");
-        }
-        else
+        // Update the "isShooting" parameter in the animator
+        if (gunAnimator != null)
         {
-            // If not aiming, play the regular recoil animation
-            gunAnimator.Play("Recoil");
+            isShooting = true;
+            gunAnimator.SetTrigger("isShooting");
+
+            // Play the appropriate recoil animation if needed
+            if (isAiming)
+            {
+                // Play AimAndShootRecoil if both aiming and shooting
+                // gunAnimator.CrossFade("AimAndShootRecoil", 0.1f);  // Use CrossFade for smooth transitions
+            }
+            else
+            {
+                // Play Recoil animation if not aiming
+                gunAnimator.CrossFade("Recoil", 0.1f);  // Use CrossFade for smooth transitions
+            }
+
+            // Reset the isShooting flag after a small delay to avoid sticking to the shooting animation
+            StartCoroutine(ResetShootingFlag());
+        }
+
+        // Instantiate a new bullet at the gun barrel's position and rotation
+        Instantiate(bulletPrefab, gunBarrel.position, gunBarrel.rotation);
+
+        // Decrease bullet count and update the UI
+        currentBullets--;
+        UpdateBulletUI();
+
+        // If all bullets are used, disable the gun
+        if (currentBullets == 0)
+        {
+            gunObject.SetActive(false); // Disable the gun if no bullets are left
         }
     }
 
-    // Instantiate a new bullet at the gun barrel's position and rotation
-    Instantiate(bulletPrefab, gunBarrel.position, gunBarrel.rotation);
-
-    // Decrease bullet count and update the UI
-    currentBullets--;
-    UpdateBulletUI();
-
-    // If all bullets are used, disable the gun
-    if (currentBullets == 0)
+    IEnumerator ResetShootingFlag()
     {
-        gunObject.SetActive(false); // Disable the gun if no bullets are left
+        // Wait for the recoil animation to finish
+        yield return new WaitForSeconds(0.3f);  // Adjust this time to match the length of your recoil animation
+        isShooting = false;
+        gunAnimator.SetBool("isShooting", false);
     }
-}
-
-
-
 
     void UpdateBulletUI()
     {
@@ -133,10 +163,23 @@ public class PlayerShoot : MonoBehaviour
         UpdateBulletUI();               // Update UI to reflect full bullets
         SetBulletUIActive(true);        // Show bullet UI
 
-        // Ensure no animation is played when acquiring the gun
+        // Ensure the correct animation state when acquiring the gun
         if (gunAnimator != null)
         {
-            gunAnimator.Play("Idle"); // Ensure the Animator starts in Idle state
+            isAiming = false; 
+            // If the player is aiming, continue with the Aim animation
+            // if (isAiming)
+            // {
+            //     // Ensure the gun is in AimDown state
+            //     gunAnimator.SetBool("isRightMouseHolding", true);
+            //     gunAnimator.CrossFade("AimDown", 0.1f); // Smooth transition to AimDown
+            // }
+            // else
+            // {
+            //     // If not aiming, reset the aiming state and play idle animation
+            //     gunAnimator.SetBool("isRightMouseHolding", false);
+            //     gunAnimator.CrossFade("Idle", 0.1f);  // Smooth transition to Idle
+            // }
         }
     }
 

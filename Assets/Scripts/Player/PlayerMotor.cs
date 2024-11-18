@@ -34,7 +34,9 @@ public class PlayerMotor : MonoBehaviour
     public float sprintSwayAmountMultiplier = 2f; // Multiplier for sway amount when sprinting
     public float sprintSwaySpeedMultiplier = 1.5f;  // Multiplier for sway speed when sprinting
 
-    // Start is called before the first frame update
+    [Header("Gun Animation")]
+    public Animator gunAnimator;      // Reference to the gun's Animator
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -48,7 +50,6 @@ public class PlayerMotor : MonoBehaviour
         cameraTransform.localPosition = new Vector3(cameraTransform.localPosition.x, 1.2f, cameraTransform.localPosition.z);
     }
 
-    // Update is called once per frame
     void Update()
     {
         isGrounded = controller.isGrounded;
@@ -61,13 +62,26 @@ public class PlayerMotor : MonoBehaviour
         }
         else if (inputManager.isSprinting && !inputManager.isCrouching) // Ensure no conflict with crouch
         {
+            Debug.Log("A");     
             currentSpeed = sprintSpeed;
             targetHeight = originalHeight; // Set target height to stand
+
+            // Trigger the gun bounce animation
+            if (gunAnimator != null)
+            {
+                gunAnimator.SetBool("isSprinting", true);
+            }
         }
         else
         {
             currentSpeed = speed;
             targetHeight = originalHeight; // Set target height to stand
+
+            // Stop the gun bounce animation
+            if (gunAnimator != null)
+            {
+                gunAnimator.SetBool("isSprinting", false);
+            }
         }
 
         // Smoothly transition to the target height
@@ -103,7 +117,6 @@ public class PlayerMotor : MonoBehaviour
         }
     }
 
-
     // Function to apply camera sway effect
     private void ApplyCameraSway()
     {
@@ -138,5 +151,4 @@ public class PlayerMotor : MonoBehaviour
         // Apply the sway to the camera's position (you can tweak this to make the sway effect stronger or weaker)
         cameraTransform.localPosition = new Vector3(swayX, 1.2f + swayY, cameraTransform.localPosition.z);
     }
-
 }
