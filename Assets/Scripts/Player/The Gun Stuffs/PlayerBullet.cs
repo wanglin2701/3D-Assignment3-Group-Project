@@ -21,11 +21,12 @@ public class PlayerBullet : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // Debugging log to check if the bullet hit something
-        Debug.Log($"enemy hit");
+        Debug.Log($"hit something");
 
         // Check if the object has the "Enemy" tag
         if (other.CompareTag("Enemy"))
         {
+            Debug.Log($"enemy hit");
             // Try to get the EnemyHealth component from the collided object
             EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
             if (enemyHealth != null)

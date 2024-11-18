@@ -9,19 +9,22 @@ public class PowerUpInteractable : Interactable
     {
         base.Interact();
 
-        // Enable the gun object for the player once the power-up is collected
+        // Ensure the PlayerShoot state is reset when picking up the new collectable
+        if (playerShoot != null)
+        {
+            playerShoot.ResetGun();      // Reset the gun state
+            playerShoot.AcquireGun();    // Re-acquire the gun with a full bullet count
+        }
+
+        // Enable the gun object for the player
         if (gunObject != null)
         {
-            gunObject.SetActive(true);  // Enable the gun object
-
-            // Call the method to enable shooting and the bullet UI
-            if (playerShoot != null)
-            {
-                playerShoot.AcquireGun();  // Enable the ability to shoot and show bullet UI
-            }
+            gunObject.SetActive(true);   // Enable the gun object
         }
 
         // Optionally destroy or deactivate the power-up after interaction
-        Destroy(gameObject);  // Destroy the power-up object
+        Destroy(gameObject);             // Destroy the power-up object
     }
 }
+
+
