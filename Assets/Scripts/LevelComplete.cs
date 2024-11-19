@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartMenuController : MonoBehaviour
+public class LevelComplete : MonoBehaviour
 {
-    public void StartGame()
+    public void RestartGame()
     {
-        Debug.Log("StartGame button clicked.");
-        SceneManager.LoadScene("SampleScene");
+        Debug.Log("PlayAgain button clicked.");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
