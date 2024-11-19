@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -34,6 +35,13 @@ public class PlayerHealth : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
+
+        // Check if health is 0 and transition to Game Over scene
+        if (health <= 0)
+        {
+            GameOver();
+        }
+
         if(overlay.color.a > 0)
         {
             
@@ -90,5 +98,11 @@ public class PlayerHealth : MonoBehaviour
     {
         health += healAmount;
         lerpTimer = 0f;
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("Game Over! Transitioning to Game Over Scene.");
+        SceneManager.LoadScene("GameOver"); // Load the Game Over scene
     }
 }
