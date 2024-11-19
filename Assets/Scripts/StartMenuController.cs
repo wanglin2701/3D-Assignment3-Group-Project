@@ -15,4 +15,10 @@ public class StartMenuController : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void HowToPlayGame()
+    {
+        Debug.Log("StartGame button clicked.");
+        SceneManager.LoadScene("HowToPlay");
+    }
 }
