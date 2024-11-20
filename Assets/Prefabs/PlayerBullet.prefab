@@ -124,6 +124,7 @@ MonoBehaviour:
   speed: 30
   damage: 10
   lifetime: 50
+  damageCrosshair: {fileID: 9067785379459143751, guid: b1432d4b8a4ec3d409098298fe663afd, type: 3}
 --- !u!54 &1353955611362435710
 Rigidbody:
   m_ObjectHideFlags: 0

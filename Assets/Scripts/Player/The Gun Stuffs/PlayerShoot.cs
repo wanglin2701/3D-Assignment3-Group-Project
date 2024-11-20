@@ -24,6 +24,9 @@ public class PlayerShoot : MonoBehaviour
     public float normalFOV = 60f;   // Default Field of View
     public float zoomSpeed = 10f;   // Speed at which the camera zooms in/out
 
+    [Header("Damage Crosshair Settings")]
+    public GameObject damageCrosshair;
+
 
     // Track aiming state
     [SerializeField]
@@ -49,6 +52,11 @@ public class PlayerShoot : MonoBehaviour
         if (gunObject != null)
         {
             gunAnimator = gunObject.GetComponent<Animator>();
+        }
+
+        if (damageCrosshair != null)
+        {
+            damageCrosshair.SetActive(false);
         }
     }
 
@@ -96,8 +104,7 @@ public class PlayerShoot : MonoBehaviour
             // Play the appropriate recoil animation if needed
             if (isAiming)
             {
-                // Play AimAndShootRecoil if both aiming and shooting
-                // gunAnimator.CrossFade("AimAndShootRecoil", 0.1f);  // Use CrossFade for smooth transitions
+        
             }
             else
             {
@@ -167,19 +174,6 @@ public class PlayerShoot : MonoBehaviour
         if (gunAnimator != null)
         {
             isAiming = false; 
-            // If the player is aiming, continue with the Aim animation
-            // if (isAiming)
-            // {
-            //     // Ensure the gun is in AimDown state
-            //     gunAnimator.SetBool("isRightMouseHolding", true);
-            //     gunAnimator.CrossFade("AimDown", 0.1f); // Smooth transition to AimDown
-            // }
-            // else
-            // {
-            //     // If not aiming, reset the aiming state and play idle animation
-            //     gunAnimator.SetBool("isRightMouseHolding", false);
-            //     gunAnimator.CrossFade("Idle", 0.1f);  // Smooth transition to Idle
-            // }
         }
     }
 
@@ -188,5 +182,22 @@ public class PlayerShoot : MonoBehaviour
         canShoot = false;               // Disable shooting
         currentBullets = maxBullets;    // Reset bullets
         UpdateBulletUI();               // Update UI
+    }
+
+     public void ShowDamageCrosshair()
+    {
+        // This method will be called from the PlayerBullet script to show the crosshair
+        if (damageCrosshair != null)
+        {
+            damageCrosshair.SetActive(true);
+            StartCoroutine(HideDamageCrosshair());
+        }
+    }
+
+    private IEnumerator HideDamageCrosshair()
+    {
+        // Hide the damage crosshair after 0.5 seconds
+        yield return new WaitForSeconds(0.5f);
+        damageCrosshair.SetActive(false);
     }
 }

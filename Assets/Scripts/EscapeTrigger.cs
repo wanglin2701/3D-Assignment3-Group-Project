@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,15 +7,28 @@ public class EscapeTrigger : MonoBehaviour
     private Collider escapeCollider;
     private bool allCoinsCollected = false;
 
+    [SerializeField] private GameObject promptText; // Reference to the prompt UI
+    [SerializeField] private GameObject exitPromptText; // Prompt for finding the exit
+    private Coroutine hidePromptCoroutine;
+
     private void Start()
     {
         escapeCollider = GetComponent<Collider>();
-        escapeCollider.isTrigger = false; 
+        escapeCollider.isTrigger = false;
+
+        // Ensure all prompts are initially hidden
+        if (promptText != null)
+        {
+            promptText.SetActive(false);
+        }
+        if (exitPromptText != null)
+        {
+            exitPromptText.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        // Ensure the player has collected all coins
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
@@ -25,28 +37,80 @@ public class EscapeTrigger : MonoBehaviour
 
             if (playerInventory != null && playerInventory.AllCoinsCollected)
             {
-                allCoinsCollected = true; // Mark all coins as collected
-                escapeCollider.isTrigger = true; 
+                if (!allCoinsCollected) // Trigger the prompt only once
+                {
+                    ShowExitPrompt();
+                }
+                allCoinsCollected = true;
+                escapeCollider.isTrigger = true;
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Ensure the collision is with the Player
         if (other.CompareTag("Player"))
         {
-            PlayerInventory playerInventory = other.GetComponent<PlayerInventory>();
-
-            if (playerInventory != null && allCoinsCollected)
+            if (allCoinsCollected)
             {
                 Debug.Log("All coins collected! Level Complete!");
                 SceneManager.LoadScene("LevelComplete");
             }
             else
             {
-                Debug.Log("You need to collect all coins before escaping!");
+                Debug.Log("Not all coins collected! Showing prompt.");
+                ShowPrompt();
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player exited the escape collider. Starting hide prompt timer.");
+            if (hidePromptCoroutine != null)
+            {
+                StopCoroutine(hidePromptCoroutine);
+            }
+            hidePromptCoroutine = StartCoroutine(HidePromptAfterDelay(1f)); // Hide prompt after 1 second
+        }
+    }
+
+    private void ShowPrompt()
+    {
+        if (promptText != null)
+        {
+            promptText.SetActive(true);
+        }
+    }
+
+    private void ShowExitPrompt()
+    {
+        if (exitPromptText != null)
+        {
+            exitPromptText.SetActive(true);
+            StartCoroutine(HideExitPromptAfterDelay(3f)); // Display the prompt for 3 seconds
+        }
+    }
+
+    private IEnumerator HidePromptAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (promptText != null)
+        {
+            promptText.SetActive(false);
+        }
+    }
+
+    private IEnumerator HideExitPromptAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (exitPromptText != null)
+        {
+            exitPromptText.SetActive(false);
         }
     }
 }
