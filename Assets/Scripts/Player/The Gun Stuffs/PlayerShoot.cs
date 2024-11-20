@@ -87,11 +87,13 @@ public class PlayerShoot : MonoBehaviour
         if (canShoot && Input.GetMouseButton(0) && Time.time >= nextFireTime && currentBullets > 0)
         {
             Shoot();
+            
         }
     }
 
     void Shoot()
     {
+        SoundManager.instance.PlaySound("PlayerAttack");
         // Set the next fire time to enforce the fire rate cooldown
         nextFireTime = Time.time + fireRate;
 
@@ -165,6 +167,7 @@ public class PlayerShoot : MonoBehaviour
 
     public void AcquireGun()
     {
+        SoundManager.instance.PlaySound("WeaponInteract");
         canShoot = true;                // Allow shooting
         currentBullets = maxBullets;    // Reset bullet count
         UpdateBulletUI();               // Update UI to reflect full bullets

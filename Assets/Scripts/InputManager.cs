@@ -66,11 +66,13 @@ public class InputManager : MonoBehaviour
     private void WalkPressed()
     {
         isWalking = true;
+        SoundManager.instance.PlaySound("Walking");
     }
     
     private void WalkReleased()
     {
         isWalking = false;
+        SoundManager.instance.StopSound("Walking");
     }
 
     private void OnEnable()

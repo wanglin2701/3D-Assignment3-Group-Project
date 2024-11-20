@@ -34,6 +34,7 @@ public class Coins : MonoBehaviour
         if (playerInventory != null)
         {
             playerInventory.CoinsCollected();
+            SoundManager.instance.PlaySound("CoinCollect"); // Play the coin sound
             gameObject.SetActive(false);
         }
     }

@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -774, y: 395}
+  m_AnchoredPosition: {x: -761, y: 465}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &93042948
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 5
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -385,7 +385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -755, y: 241}
+  m_AnchoredPosition: {x: -755, y: 339}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &458413520
@@ -410,8 +410,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Move: WASD \r\nCrouching: Left control (WASD)\r\nSprint: Shift + WASD\r\nInteract:
     E\r\nJump: Space Bar\r\nShoot: Mouse Left Click\r\nAim Shoot: Mouse Right Click\r\n\r\nGame
-    Objective: Escape the maze and obtain all 20 coins for your survival in this
-    exciting race against various enemies. The clue for the Game Exit is \"Yellow!\""
+    Objective: Can you outsmart the maze, collect all 20 coins, and defeat relentless
+    enemies before they take you down? Fight back, survive the chaos, and escape
+    to victory! \n\nRemember, the clue to the exit is 'Yellow! Can you conquer the
+    challenge?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -420,8 +422,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279045389
-  m_fontColor: {r: 0.050314426, g: 0.050314426, b: 0.050314426, a: 1}
+    rgba: 4282324992
+  m_fontColor: {r: 0, g: 0.094556995, b: 0.24528301, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -450,9 +452,9 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 23.3
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 25
+  m_paragraphSpacing: -14.3
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -474,7 +476,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -1438.9159, w: 0}
+  m_margin: {x: 0, y: 0, z: -1523.1804, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
