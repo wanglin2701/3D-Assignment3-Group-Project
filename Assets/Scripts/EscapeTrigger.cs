@@ -54,6 +54,7 @@ public class EscapeTrigger : MonoBehaviour
             if (allCoinsCollected)
             {
                 Debug.Log("All coins collected! Level Complete!");
+                SoundManager.instance.PlaySound("LevelComplete");
                 SceneManager.LoadScene("LevelComplete");
             }
             else

@@ -78,10 +78,12 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         onFoot.Enable();
+        //SoundManager.instance.StopSound("Walking");
     }
 
     private void OnDisable()
     {
         onFoot.Disable();
+        SoundManager.instance.StopSound("Walking");
     }
 }

@@ -42,6 +42,11 @@ public class PlayerHealth : MonoBehaviour
             GameOver();
         }
 
+        if (health >= 100)
+        {
+            SoundManager.instance.StopSound("HealthRecover");
+        }
+    
         if(overlay.color.a > 0)
         {
             
@@ -89,6 +94,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        SoundManager.instance.PlaySound("PlayerHurt");
         lerpTimer = 0f;
         durationTimer = 0;
         overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1);
@@ -96,7 +102,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void RestoreHealth(float healAmount)
     {
+        SoundManager.instance.StopSound("OpenDoor");
         health += healAmount;
+        SoundManager.instance.PlaySound("HealthRecover");
         lerpTimer = 0f;
     }
 

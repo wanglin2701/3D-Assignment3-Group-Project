@@ -37,6 +37,7 @@ public class PlayerInteract : MonoBehaviour
                 playerUI.UpdateText(interactable.promptMessage);
                 if(inputManager.onFoot.Interact.triggered)
                 {
+                    SoundManager.instance.PlaySound("OpenDoor");
                     interactable.BaseInteract();
                 }
                     

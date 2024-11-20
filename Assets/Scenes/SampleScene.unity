@@ -8749,27 +8749,27 @@ MonoBehaviour:
     loop: 0
   - name: OpenDoor
     clip: {fileID: 8300000, guid: ba5f993836eedf34da18db0fe02e2894, type: 3}
-    volume: 0
+    volume: 1
     loop: 0
   - name: WeaponInteract
     clip: {fileID: 8300000, guid: 3b862ca219de71845bc67444a0ec7a7d, type: 3}
-    volume: 0.8
+    volume: 0.45
     loop: 0
   - name: PlayerHurt
     clip: {fileID: 8300000, guid: c9f49044e769e754889dbbaeadaeb44f, type: 3}
-    volume: 0
+    volume: 0.7
     loop: 0
   - name: HealthRecover
     clip: {fileID: 8300000, guid: 693e79c324ef5c34a8cd76966b25f1f5, type: 3}
-    volume: 0
+    volume: 0.8
     loop: 0
   - name: LevelComplete
     clip: {fileID: 8300000, guid: 527436a955e601c419bbc4b92fc99a59, type: 3}
-    volume: 0
+    volume: 0.65
     loop: 0
   - name: PlayerAttack
     clip: {fileID: 8300000, guid: 09183231b1f90fb41b2236536ae5bfe6, type: 3}
-    volume: 0.5
+    volume: 0.27
     loop: 0
 --- !u!4 &824197097
 Transform:
@@ -22361,7 +22361,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 590485681651483965, guid: 3eca7c7f02f2771468b40d4bc97bc6ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.88
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 590485681651483965, guid: 3eca7c7f02f2771468b40d4bc97bc6ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22369,7 +22369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 590485681651483965, guid: 3eca7c7f02f2771468b40d4bc97bc6ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.61
+      value: -7.86
       objectReference: {fileID: 0}
     - target: {fileID: 590485681651483965, guid: 3eca7c7f02f2771468b40d4bc97bc6ae, type: 3}
       propertyPath: m_LocalRotation.w
