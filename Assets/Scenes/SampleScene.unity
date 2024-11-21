@@ -2506,7 +2506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &245922618
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2783,6 +2783,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 17
@@ -2884,7 +2888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 443, y: -94.5}
+  m_AnchoredPosition: {x: 460, y: -96}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &266627446
@@ -3062,7 +3066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 267, y: -38.9}
+  m_AnchoredPosition: {x: 269, y: -38.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &281680377
@@ -3319,6 +3323,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 16
@@ -3393,6 +3401,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 6
@@ -3888,6 +3900,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 15
@@ -3962,6 +3978,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 3
@@ -4966,7 +4986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &428183550
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6741,7 +6761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &592128474
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7616,6 +7636,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 8
@@ -8598,6 +8622,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 9
@@ -11679,6 +11707,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 7
@@ -11963,7 +11995,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Coins:    / 20\nEnemy to kill:     / 3      \n"
+  m_text: "Coins:     / 20\nEnemy to kill:     / 3      \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13069,6 +13101,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 5
@@ -13644,6 +13680,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 11
@@ -14869,6 +14909,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 2
@@ -16135,6 +16179,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 1
@@ -16427,6 +16475,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 14
@@ -17299,6 +17351,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 18
@@ -17981,6 +18037,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 13
@@ -18086,6 +18146,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 20
@@ -19142,6 +19206,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 10
@@ -20021,6 +20089,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 19
@@ -21366,6 +21438,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 4
@@ -23202,6 +23278,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 583787307}
     m_Modifications:
+    - target: {fileID: 710546209206840965, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2621907552748573667, guid: 60e3c93fe6d35244ca78274d6e3d5aa4, type: 3}
       propertyPath: m_Name
       value: coin 12
@@ -23560,7 +23640,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 590485681651483965, guid: 3eca7c7f02f2771468b40d4bc97bc6ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 39.9
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 590485681651483965, guid: 3eca7c7f02f2771468b40d4bc97bc6ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23568,7 +23648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 590485681651483965, guid: 3eca7c7f02f2771468b40d4bc97bc6ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -40.5
+      value: -10.03
       objectReference: {fileID: 0}
     - target: {fileID: 590485681651483965, guid: 3eca7c7f02f2771468b40d4bc97bc6ae, type: 3}
       propertyPath: m_LocalRotation.w
