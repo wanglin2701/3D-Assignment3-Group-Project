@@ -2443,9 +2443,8 @@ GameObject:
   - component: {fileID: 248127866}
   - component: {fileID: 248127865}
   - component: {fileID: 248127864}
-  - component: {fileID: 248127863}
-  - component: {fileID: 248127862}
   - component: {fileID: 248127867}
+  - component: {fileID: 248127868}
   m_Layer: 6
   m_Name: Heal cube 8
   m_TagString: Obstacle
@@ -2462,53 +2461,12 @@ Transform:
   m_GameObject: {fileID: 248127860}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -69.2, y: 0, z: 32.583}
+  m_LocalPosition: {x: -69.2, y: 0.48000002, z: 32.583}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &248127862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248127860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e74a969e867e646946e892ed3ebc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553428039}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &248127863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248127860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6512ce0eefcad41b957b17ad36914a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Heal u lol
 --- !u!65 &248127864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2592,9 +2550,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
+--- !u!114 &248127868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248127860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b712bd8288ed249bddb32f82053939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 0
+  promptMessage: heal u lol
+  healAmount: 20
 --- !u!1 &249182522 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1213973709954978230, guid: b1432d4b8a4ec3d409098298fe663afd, type: 3}
@@ -3079,9 +3052,8 @@ GameObject:
   - component: {fileID: 297961487}
   - component: {fileID: 297961486}
   - component: {fileID: 297961485}
-  - component: {fileID: 297961484}
-  - component: {fileID: 297961483}
   - component: {fileID: 297961488}
+  - component: {fileID: 297961489}
   m_Layer: 6
   m_Name: Heal cube 4
   m_TagString: Obstacle
@@ -3098,53 +3070,12 @@ Transform:
   m_GameObject: {fileID: 297961481}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -86.6, y: 0, z: -37.09}
+  m_LocalPosition: {x: -86.6, y: 0.48000002, z: -37.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &297961483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297961481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e74a969e867e646946e892ed3ebc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553428039}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &297961484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297961481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6512ce0eefcad41b957b17ad36914a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Heal u lol
 --- !u!65 &297961485
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3228,9 +3159,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
+--- !u!114 &297961489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297961481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b712bd8288ed249bddb32f82053939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 0
+  promptMessage: heal u lol
+  healAmount: 20
 --- !u!1001 &302076828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4448,9 +4394,8 @@ GameObject:
   - component: {fileID: 394533027}
   - component: {fileID: 394533026}
   - component: {fileID: 394533025}
-  - component: {fileID: 394533024}
-  - component: {fileID: 394533023}
   - component: {fileID: 394533028}
+  - component: {fileID: 394533029}
   m_Layer: 6
   m_Name: Heal cube 7
   m_TagString: Obstacle
@@ -4467,53 +4412,12 @@ Transform:
   m_GameObject: {fileID: 394533021}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.45, y: 0, z: -12.67}
+  m_LocalPosition: {x: -24.45, y: 0.48000002, z: -12.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &394533023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394533021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e74a969e867e646946e892ed3ebc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553428039}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &394533024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394533021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6512ce0eefcad41b957b17ad36914a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Heal u lol
 --- !u!65 &394533025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4597,9 +4501,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
+--- !u!114 &394533029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394533021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b712bd8288ed249bddb32f82053939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 0
+  promptMessage: heal u lol
+  healAmount: 20
 --- !u!1001 &394798470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5265,9 +5184,8 @@ GameObject:
   - component: {fileID: 463085403}
   - component: {fileID: 463085402}
   - component: {fileID: 463085401}
-  - component: {fileID: 463085400}
-  - component: {fileID: 463085399}
   - component: {fileID: 463085404}
+  - component: {fileID: 463085405}
   m_Layer: 6
   m_Name: Heal cube 6
   m_TagString: Obstacle
@@ -5284,53 +5202,12 @@ Transform:
   m_GameObject: {fileID: 463085397}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -61.84, y: 0, z: 4.99}
+  m_LocalPosition: {x: -61.84, y: 0.48000002, z: 4.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &463085399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463085397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e74a969e867e646946e892ed3ebc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553428039}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &463085400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463085397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6512ce0eefcad41b957b17ad36914a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Heal u lol
 --- !u!65 &463085401
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5414,9 +5291,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
+--- !u!114 &463085405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463085397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b712bd8288ed249bddb32f82053939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 0
+  promptMessage: heal u lol
+  healAmount: 20
 --- !u!1 &476438740
 GameObject:
   m_ObjectHideFlags: 0
@@ -7203,9 +7095,8 @@ GameObject:
   - component: {fileID: 649407074}
   - component: {fileID: 649407073}
   - component: {fileID: 649407072}
-  - component: {fileID: 649407071}
-  - component: {fileID: 649407070}
   - component: {fileID: 649407075}
+  - component: {fileID: 649407076}
   m_Layer: 6
   m_Name: Heal cube 3
   m_TagString: Obstacle
@@ -7222,53 +7113,12 @@ Transform:
   m_GameObject: {fileID: 649407068}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -86.6, y: 0, z: 50.4}
+  m_LocalPosition: {x: -86.6, y: 0.48000002, z: 50.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &649407070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649407068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e74a969e867e646946e892ed3ebc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553428039}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &649407071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649407068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6512ce0eefcad41b957b17ad36914a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Heal u lol
 --- !u!65 &649407072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7352,9 +7202,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
+--- !u!114 &649407076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649407068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b712bd8288ed249bddb32f82053939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 0
+  promptMessage: heal u lol
+  healAmount: 20
 --- !u!1 &651350851
 GameObject:
   m_ObjectHideFlags: 0
@@ -13328,9 +13193,8 @@ GameObject:
   - component: {fileID: 1314705725}
   - component: {fileID: 1314705724}
   - component: {fileID: 1314705723}
-  - component: {fileID: 1314705722}
-  - component: {fileID: 1314705721}
   - component: {fileID: 1314705726}
+  - component: {fileID: 1314705727}
   m_Layer: 6
   m_Name: Heal cube 5
   m_TagString: Obstacle
@@ -13347,53 +13211,12 @@ Transform:
   m_GameObject: {fileID: 1314705719}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.48000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1314705721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314705719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e74a969e867e646946e892ed3ebc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553428039}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1314705722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314705719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6512ce0eefcad41b957b17ad36914a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Heal u lol
 --- !u!65 &1314705723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13477,9 +13300,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
+--- !u!114 &1314705727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314705719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b712bd8288ed249bddb32f82053939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 0
+  promptMessage: heal u lol
+  healAmount: 20
 --- !u!1 &1330556411
 GameObject:
   m_ObjectHideFlags: 0
@@ -13908,7 +13746,7 @@ Transform:
   m_GameObject: {fileID: 1348778266}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -47.431, y: 0, z: -3.9299998}
+  m_LocalPosition: {x: -47.431, y: 0.48, z: -3.9299998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -13926,7 +13764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
 --- !u!114 &1348778274
@@ -15069,9 +14907,8 @@ GameObject:
   - component: {fileID: 1466658613}
   - component: {fileID: 1466658612}
   - component: {fileID: 1466658611}
-  - component: {fileID: 1466658610}
-  - component: {fileID: 1466658609}
   - component: {fileID: 1466658614}
+  - component: {fileID: 1466658615}
   m_Layer: 6
   m_Name: Heal cube 10
   m_TagString: Obstacle
@@ -15088,53 +14925,12 @@ Transform:
   m_GameObject: {fileID: 1466658607}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -42.84, y: 0, z: -37.1}
+  m_LocalPosition: {x: -42.84, y: 0.48000002, z: -37.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1466658609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466658607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e74a969e867e646946e892ed3ebc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553428039}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1466658610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466658607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6512ce0eefcad41b957b17ad36914a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Heal u lol
 --- !u!65 &1466658611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15218,9 +15014,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
+--- !u!114 &1466658615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466658607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b712bd8288ed249bddb32f82053939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 0
+  promptMessage: heal u lol
+  healAmount: 20
 --- !u!1 &1473577517
 GameObject:
   m_ObjectHideFlags: 0
@@ -19091,9 +18902,8 @@ GameObject:
   - component: {fileID: 1830742382}
   - component: {fileID: 1830742381}
   - component: {fileID: 1830742380}
-  - component: {fileID: 1830742379}
-  - component: {fileID: 1830742378}
   - component: {fileID: 1830742383}
+  - component: {fileID: 1830742384}
   m_Layer: 6
   m_Name: Heal cube 2
   m_TagString: Obstacle
@@ -19110,53 +18920,12 @@ Transform:
   m_GameObject: {fileID: 1830742376}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.08, y: 0, z: 6.49}
+  m_LocalPosition: {x: -21.08, y: 0.48000002, z: 6.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1830742378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830742376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e74a969e867e646946e892ed3ebc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553428039}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1830742379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830742376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6512ce0eefcad41b957b17ad36914a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Heal u lol
 --- !u!65 &1830742380
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19240,9 +19009,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
+--- !u!114 &1830742384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830742376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b712bd8288ed249bddb32f82053939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 0
+  promptMessage: heal u lol
+  healAmount: 20
 --- !u!1 &1830844658
 GameObject:
   m_ObjectHideFlags: 0
@@ -20554,9 +20338,8 @@ GameObject:
   - component: {fileID: 1972400452}
   - component: {fileID: 1972400451}
   - component: {fileID: 1972400450}
-  - component: {fileID: 1972400449}
-  - component: {fileID: 1972400448}
   - component: {fileID: 1972400453}
+  - component: {fileID: 1972400454}
   m_Layer: 6
   m_Name: Heal cube 12
   m_TagString: Obstacle
@@ -20573,53 +20356,12 @@ Transform:
   m_GameObject: {fileID: 1972400446}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.5, y: 0, z: 44.13}
+  m_LocalPosition: {x: -36.5, y: 0.48000002, z: 44.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1972400448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972400446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e74a969e867e646946e892ed3ebc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553428039}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1972400449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972400446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6512ce0eefcad41b957b17ad36914a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Heal u lol
 --- !u!65 &1972400450
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20703,9 +20445,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
+--- !u!114 &1972400454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972400446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b712bd8288ed249bddb32f82053939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 0
+  promptMessage: heal u lol
+  healAmount: 20
 --- !u!1 &1978505055
 GameObject:
   m_ObjectHideFlags: 0
@@ -20718,9 +20475,8 @@ GameObject:
   - component: {fileID: 1978505061}
   - component: {fileID: 1978505060}
   - component: {fileID: 1978505059}
-  - component: {fileID: 1978505058}
-  - component: {fileID: 1978505057}
   - component: {fileID: 1978505062}
+  - component: {fileID: 1978505063}
   m_Layer: 6
   m_Name: Heal cube 11
   m_TagString: Obstacle
@@ -20737,53 +20493,12 @@ Transform:
   m_GameObject: {fileID: 1978505055}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -69.2, y: 0, z: -19.4}
+  m_LocalPosition: {x: -69.2, y: 0.48000002, z: -19.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1978505057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978505055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e74a969e867e646946e892ed3ebc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553428039}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1978505058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978505055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6512ce0eefcad41b957b17ad36914a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Heal u lol
 --- !u!65 &1978505059
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20867,9 +20582,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
+--- !u!114 &1978505063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978505055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b712bd8288ed249bddb32f82053939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 0
+  promptMessage: heal u lol
+  healAmount: 20
 --- !u!1 &1985366733
 GameObject:
   m_ObjectHideFlags: 0
@@ -21429,9 +21159,8 @@ GameObject:
   - component: {fileID: 2015733461}
   - component: {fileID: 2015733460}
   - component: {fileID: 2015733459}
-  - component: {fileID: 2015733458}
-  - component: {fileID: 2015733457}
   - component: {fileID: 2015733462}
+  - component: {fileID: 2015733463}
   m_Layer: 6
   m_Name: Heal cube 9
   m_TagString: Obstacle
@@ -21448,53 +21177,12 @@ Transform:
   m_GameObject: {fileID: 2015733455}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.972, y: 0, z: 40.46}
+  m_LocalPosition: {x: -8.972, y: 0.48000002, z: 40.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2015733457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015733455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e74a969e867e646946e892ed3ebc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1553428039}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 25
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2015733458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015733455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6512ce0eefcad41b957b17ad36914a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEvents: 1
-  promptMessage: Heal u lol
 --- !u!65 &2015733459
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21578,9 +21266,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAmplitude: 0.5
+  floatAmplitude: 0.4
   floatSpeed: 1
   spinSpeed: 50
+--- !u!114 &2015733463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015733455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b712bd8288ed249bddb32f82053939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvents: 0
+  promptMessage: heal u lol
+  healAmount: 20
 --- !u!1 &2019671134
 GameObject:
   m_ObjectHideFlags: 0
