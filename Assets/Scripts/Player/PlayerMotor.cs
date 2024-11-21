@@ -114,6 +114,7 @@ public class PlayerMotor : MonoBehaviour
         if (isGrounded && !inputManager.isCrouching) // Prevent jumping while crouching
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
+            SoundManager.instance.PlaySound("Jumping");
         }
     }
 

@@ -46,21 +46,27 @@ public class InputManager : MonoBehaviour
     private void SprintPressed()
     {
         isSprinting = true;
+        SoundManager.instance.StopSound("Walking");
+        SoundManager.instance.PlaySound("Sprinting");
     }
 
     private void SprintRelease()
     {
         isSprinting = false;
+        SoundManager.instance.StopSound("Walking");
+        SoundManager.instance.StopSound("Sprinting");
     }
 
     private void CrouchPressed()
     {
         isCrouching = true;
+        SoundManager.instance.PlaySound("Crouching");
     }
 
     private void CrouchReleased()
     {
         isCrouching = false;
+        SoundManager.instance.StopSound("Crouching");
     }
 
     private void WalkPressed()
