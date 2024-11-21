@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ArrowPointer : MonoBehaviour
 {
-    public Transform player; // Reference to the player
+    public Transform player; 
     public float fixedYPosition = 22f; // Fixed Y position for the arrow
-    public Vector3 arrowOffset; // Optional offset to adjust arrow's position relative to player (e.g., above the player)
+    public Vector3 arrowOffset; // Optional offset to adjust arrow's position relative to player 
 
     void Update()
     {
