@@ -55,12 +55,12 @@ public class PlayerHealth : MonoBehaviour
             {
                 return;
             }
-            durationTimer += Time.deltaTime;
-            if(durationTimer > duration)
+            durationTimer += Time.deltaTime; // track how long the overlay has been visible
+            if(durationTimer > duration) // if longer than certain time, it fades.
             {
                 //fade the image
                 float tempAlpha = overlay.color.a;
-                tempAlpha -= Time.deltaTime * fadeSpeed;
+                tempAlpha -= Time.deltaTime * fadeSpeed; // make overlay transparent
                 overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, tempAlpha);
             }
         }
@@ -72,7 +72,7 @@ public class PlayerHealth : MonoBehaviour
         float fillF = frontHealthBar.fillAmount;
         float fillB = backHealthBar.fillAmount;
         float hFraction = health / maxHealth;
-        if (fillB > hFraction)
+        if (fillB > hFraction) // Checks if the back health bar (delayed visual) is greater than the health fraction.
         {
             frontHealthBar.fillAmount = hFraction;
             backHealthBar.color = Color.red;
@@ -80,10 +80,10 @@ public class PlayerHealth : MonoBehaviour
             float percentComplete = lerpTimer / chipSpeed;
             backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
         }
-        if(fillF < hFraction)
+        if(fillF < hFraction) // Checks if the front health bar is less than the health fraction.
         {
-            backHealthBar.color = Color.green;
-            backHealthBar.fillAmount = hFraction;
+            backHealthBar.color = Color.green; 
+            backHealthBar.fillAmount = hFraction; // back go first
             lerpTimer += Time.deltaTime;
             float percentComplete = lerpTimer / chipSpeed;
             percentComplete = percentComplete * percentComplete;
