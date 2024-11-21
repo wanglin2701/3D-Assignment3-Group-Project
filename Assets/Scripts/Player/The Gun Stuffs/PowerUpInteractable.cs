@@ -48,4 +48,9 @@ public class PowerUpInteractable : Interactable
         // Optionally destroy or deactivate the power-up after interaction
         Destroy(gameObject);             // Destroy the power-up object
     }
+
+    public void GetGunModel()
+    {
+        gunObject.SetActive(true);
+    }
 }
