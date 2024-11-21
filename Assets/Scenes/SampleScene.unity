@@ -2445,6 +2445,7 @@ GameObject:
   - component: {fileID: 248127864}
   - component: {fileID: 248127863}
   - component: {fileID: 248127862}
+  - component: {fileID: 248127867}
   m_Layer: 6
   m_Name: Heal cube 8
   m_TagString: Obstacle
@@ -2579,6 +2580,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248127860}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &248127867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248127860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1 &249182522 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1213973709954978230, guid: b1432d4b8a4ec3d409098298fe663afd, type: 3}
@@ -2918,6 +2934,7 @@ GameObject:
   - component: {fileID: 297961485}
   - component: {fileID: 297961484}
   - component: {fileID: 297961483}
+  - component: {fileID: 297961488}
   m_Layer: 6
   m_Name: Heal cube 4
   m_TagString: Obstacle
@@ -3052,6 +3069,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297961481}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &297961488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297961481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1001 &302076828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4271,6 +4303,7 @@ GameObject:
   - component: {fileID: 394533025}
   - component: {fileID: 394533024}
   - component: {fileID: 394533023}
+  - component: {fileID: 394533028}
   m_Layer: 6
   m_Name: Heal cube 7
   m_TagString: Obstacle
@@ -4405,6 +4438,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394533021}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &394533028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394533021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1001 &394798470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5072,6 +5120,7 @@ GameObject:
   - component: {fileID: 463085401}
   - component: {fileID: 463085400}
   - component: {fileID: 463085399}
+  - component: {fileID: 463085404}
   m_Layer: 6
   m_Name: Heal cube 6
   m_TagString: Obstacle
@@ -5206,6 +5255,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463085397}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &463085404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463085397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1 &476438740
 GameObject:
   m_ObjectHideFlags: 0
@@ -6994,6 +7058,7 @@ GameObject:
   - component: {fileID: 649407072}
   - component: {fileID: 649407071}
   - component: {fileID: 649407070}
+  - component: {fileID: 649407075}
   m_Layer: 6
   m_Name: Heal cube 3
   m_TagString: Obstacle
@@ -7128,6 +7193,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649407068}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &649407075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649407068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1 &651350851
 GameObject:
   m_ObjectHideFlags: 0
@@ -8806,7 +8886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &837092680
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13101,6 +13181,7 @@ GameObject:
   - component: {fileID: 1314705723}
   - component: {fileID: 1314705722}
   - component: {fileID: 1314705721}
+  - component: {fileID: 1314705726}
   m_Layer: 6
   m_Name: Heal cube 5
   m_TagString: Obstacle
@@ -13235,6 +13316,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314705719}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1314705726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314705719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1 &1330556411
 GameObject:
   m_ObjectHideFlags: 0
@@ -13575,6 +13671,7 @@ GameObject:
   - component: {fileID: 1348778269}
   - component: {fileID: 1348778268}
   - component: {fileID: 1348778267}
+  - component: {fileID: 1348778273}
   m_Layer: 6
   m_Name: Heal cube 1
   m_TagString: Obstacle
@@ -13709,6 +13806,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 758143536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1348778273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348778266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1 &1367034612
 GameObject:
   m_ObjectHideFlags: 0
@@ -14836,6 +14948,7 @@ GameObject:
   - component: {fileID: 1466658611}
   - component: {fileID: 1466658610}
   - component: {fileID: 1466658609}
+  - component: {fileID: 1466658614}
   m_Layer: 6
   m_Name: Heal cube 10
   m_TagString: Obstacle
@@ -14970,6 +15083,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466658607}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1466658614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466658607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1 &1473577517
 GameObject:
   m_ObjectHideFlags: 0
@@ -18842,6 +18970,7 @@ GameObject:
   - component: {fileID: 1830742380}
   - component: {fileID: 1830742379}
   - component: {fileID: 1830742378}
+  - component: {fileID: 1830742383}
   m_Layer: 6
   m_Name: Heal cube 2
   m_TagString: Obstacle
@@ -18976,6 +19105,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830742376}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1830742383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830742376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1 &1830844658
 GameObject:
   m_ObjectHideFlags: 0
@@ -20289,6 +20433,7 @@ GameObject:
   - component: {fileID: 1972400450}
   - component: {fileID: 1972400449}
   - component: {fileID: 1972400448}
+  - component: {fileID: 1972400453}
   m_Layer: 6
   m_Name: Heal cube 12
   m_TagString: Obstacle
@@ -20423,6 +20568,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972400446}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1972400453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972400446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1 &1978505055
 GameObject:
   m_ObjectHideFlags: 0
@@ -20437,6 +20597,7 @@ GameObject:
   - component: {fileID: 1978505059}
   - component: {fileID: 1978505058}
   - component: {fileID: 1978505057}
+  - component: {fileID: 1978505062}
   m_Layer: 6
   m_Name: Heal cube 11
   m_TagString: Obstacle
@@ -20571,6 +20732,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978505055}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1978505062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978505055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1 &1985366733
 GameObject:
   m_ObjectHideFlags: 0
@@ -21132,6 +21308,7 @@ GameObject:
   - component: {fileID: 2015733459}
   - component: {fileID: 2015733458}
   - component: {fileID: 2015733457}
+  - component: {fileID: 2015733462}
   m_Layer: 6
   m_Name: Heal cube 9
   m_TagString: Obstacle
@@ -21266,6 +21443,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015733455}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2015733462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015733455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e903225b3ac35e448b424f755b75e1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmplitude: 0.5
+  floatSpeed: 1
+  spinSpeed: 50
 --- !u!1 &2019671134
 GameObject:
   m_ObjectHideFlags: 0
@@ -22849,7 +23041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 590485681651483965, guid: 3eca7c7f02f2771468b40d4bc97bc6ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.5
+      value: -6.57
       objectReference: {fileID: 0}
     - target: {fileID: 590485681651483965, guid: 3eca7c7f02f2771468b40d4bc97bc6ae, type: 3}
       propertyPath: m_LocalRotation.w
