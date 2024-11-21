@@ -9,6 +9,8 @@ public class EscapeTrigger : MonoBehaviour
 
     [SerializeField] private GameObject promptText; // Reference to the prompt UI
     [SerializeField] private GameObject exitPromptText; // Prompt for finding the exit
+    
+    [SerializeField] private GameObject promptTextTokillenemy;
     private Coroutine hidePromptCoroutine;
 
     private void Start()
@@ -25,6 +27,11 @@ public class EscapeTrigger : MonoBehaviour
         {
             exitPromptText.SetActive(false);
         }
+
+        if (promptTextTokillenemy != null)
+        {
+            promptTextTokillenemy.SetActive(false);
+        }
     }
 
     private void Update()
@@ -34,15 +41,20 @@ public class EscapeTrigger : MonoBehaviour
         if (player != null)
         {
             PlayerInventory playerInventory = player.GetComponent<PlayerInventory>();
+            InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
 
-            if (playerInventory != null && playerInventory.AllCoinsCollected)
+            if (playerInventory != null && playerInventory.AllCoinsCollected && inventoryUI != null)
             {
-                if (!allCoinsCollected) // Trigger the prompt only once
+                bool enemiesKilled = inventoryUI.GetEnemyKillCount() >= 3;
+                if (!allCoinsCollected && enemiesKilled) // Trigger the prompt only once
                 {
                     ShowExitPrompt();
+
                 }
+                
                 allCoinsCollected = true;
                 escapeCollider.isTrigger = true;
+                
             }
         }
     }
@@ -88,9 +100,10 @@ public class EscapeTrigger : MonoBehaviour
 
     private void ShowExitPrompt()
     {
-        if (exitPromptText != null)
+        if (exitPromptText != null && promptTextTokillenemy != null)
         {
             exitPromptText.SetActive(true);
+            promptTextTokillenemy.SetActive(true);
             StartCoroutine(HideExitPromptAfterDelay(3f)); // Display the prompt for 3 seconds
         }
     }
@@ -103,6 +116,7 @@ public class EscapeTrigger : MonoBehaviour
         {
             promptText.SetActive(false);
         }
+
     }
 
     private IEnumerator HideExitPromptAfterDelay(float delay)
@@ -112,6 +126,16 @@ public class EscapeTrigger : MonoBehaviour
         if (exitPromptText != null)
         {
             exitPromptText.SetActive(false);
+        }
+    }
+
+    private IEnumerator HidepromptTextTokillenemyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (promptTextTokillenemy!= null)
+        {
+            promptTextTokillenemy.SetActive(false);
         }
     }
 }

@@ -100,6 +100,11 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0 && !isDead)
         {
             isDead = true;
+            InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+            if (inventoryUI != null)
+            {
+                inventoryUI.UpdateEnemyCount();
+            }
             TriggerDeathAnimation(); // Start the death animation
 
             // Hide the health bar when the enemy dies
