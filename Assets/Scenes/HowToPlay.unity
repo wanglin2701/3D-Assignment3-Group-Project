@@ -411,9 +411,11 @@ MonoBehaviour:
   m_text: "Move: WASD \r                                                   Jump:
     Space Bar\r\nSprint: Shift + WASD\r                                                  
     Interact with weapons/doors: E\r\nCrouching: Left control +WASD\r                                                  
-    Shoot: Mouse Left Click\r\nAim Shoot: Mouse Right Click\r\nObjective: Can you
-    outsmart the maze, collect ALL yellow coins, and defeat relentless enemies before
-    they take you down? Fight back, survive the chaos, and escape to victory!\n\n\n"
+    Shoot: Mouse Left Click\r                                                                  
+    \nAim Shoot: Mouse Right Click\r                                                  
+    Open Enlarged Map: E                       \nObjective: Can you outsmart the
+    maze, collect ALL yellow coins, and defeat at least three relentless enemies
+    before they take you down? Fight back, survive the chaos, and escape to victory!\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

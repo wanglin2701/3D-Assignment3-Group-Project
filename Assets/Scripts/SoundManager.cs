@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
     {
         public string name;         // Identifier for the sound
         public AudioClip clip;      // Audio clip
-        [Range(0f, 1f)] public float volume = 1f; // Volume control
+        [Range(0f, 2f)] public float volume = 2f; // Volume control
         public bool loop;           // Loop option
     }
 
