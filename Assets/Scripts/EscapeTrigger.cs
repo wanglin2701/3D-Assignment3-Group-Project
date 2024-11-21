@@ -1,110 +1,100 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class EscapeTrigger : MonoBehaviour
 {
     private Collider escapeCollider;
 
-    // Exposed booleans to check conditions in the Inspector
-    public bool isAllCoinsCollected = false;  // To check if all coins are collected
-    public bool isThreeEnemiesDefeated = false; // To check if 3 enemies are defeated
-    public bool isExitConditionMet = false;  // To check if exit condition is met
+    public bool isAllCoinsCollected = false;  // Check if all coins are collected
+    public bool isThreeEnemiesDefeated = false;  // Check if 3 enemies are defeated
+    public bool isExitConditionMet = false;  // Check if exit condition is met
 
-    [SerializeField] private GameObject promptText; // Prompt for collecting coins
-    [SerializeField] private GameObject exitPromptText; // Prompt for finding the exit
-    [SerializeField] private GameObject promptTextToKillEnemy; // Prompt for killing enemies
-    private Coroutine hidePromptCoroutine;
+    [SerializeField] private GameObject promptText;  // Prompt for collecting coins
+    [SerializeField] private GameObject exitPromptText;  // Prompt for finding the exit
+    [SerializeField] private GameObject promptTextToKillEnemy;  // Prompt for killing enemies
+    [SerializeField] private PlayerInventory playerInventory;
 
-    private void Start()
+    void Start()
     {
         escapeCollider = GetComponent<Collider>();
         escapeCollider.isTrigger = false;
 
-        // Ensure all prompts are initially hidden
+        // Ensure prompts are initially hidden
         if (promptText != null) promptText.SetActive(false);
         if (exitPromptText != null) exitPromptText.SetActive(false);
         if (promptTextToKillEnemy != null) promptTextToKillEnemy.SetActive(false);
     }
 
-    private void Update()
+    void Update()
     {
-        // Only check for the exit condition after both coin collection and enemy kills are fulfilled
+        // Check if all conditions are met
         if (isAllCoinsCollected && isThreeEnemiesDefeated && !isExitConditionMet)
         {
-            isExitConditionMet = true;  // If both conditions are met, set exit condition
+            isExitConditionMet = true;
+            Debug.Log("All conditions met! Exit is now enabled.");
             ShowExitPrompt();
-            escapeCollider.isTrigger = true; // Enable the escape collider for the player
+            escapeCollider.isTrigger = true;  // Enable escape collider
         }
+        CompleteCoinTask();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            GameObject player = other.gameObject;
-            PlayerInventory playerInventory = player.GetComponent<PlayerInventory>();
-            InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
-
-            // If both conditions are met (either by manual setting in the inspector or in-game), proceed to level complete
-            if (isAllCoinsCollected && isThreeEnemiesDefeated)
+            if (isExitConditionMet)
             {
-                Debug.Log("All conditions met! Level Complete!");
+                Debug.Log("Player collided with escape trigger. Proceeding to Level Complete scene.");
                 SoundManager.instance.PlaySound("LevelComplete");
-                SceneManager.LoadScene("LevelComplete");
+                SceneManager.LoadScene("LevelComplete");  // Load next scene
             }
             else
             {
-                // Show relevant prompts if conditions are not met
-                if (!isAllCoinsCollected) ShowPrompt(); // Prompt to collect coins
-                if (!isThreeEnemiesDefeated) ShowKillEnemiesPrompt(); // Prompt to kill enemies
+                // Show prompts if conditions are not met
+                if (!isAllCoinsCollected) ShowPrompt();  // Prompt to collect coins
+                if (!isThreeEnemiesDefeated) ShowKillEnemiesPrompt();  // Prompt to kill enemies
             }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player exited the escape collider. Starting hide prompt timer.");
-            if (hidePromptCoroutine != null) StopCoroutine(hidePromptCoroutine);
-            hidePromptCoroutine = StartCoroutine(HidePromptAfterDelay(1f)); // Hide prompt after 1 second
         }
     }
 
     private void ShowPrompt()
     {
         if (promptText != null) promptText.SetActive(true);
-        StartCoroutine(HidePromptAfterDelay(2f)); // Show prompt for 2 seconds
+        StartCoroutine(HidePromptAfterDelay(2f));
     }
 
     private void ShowKillEnemiesPrompt()
     {
         if (promptTextToKillEnemy != null) promptTextToKillEnemy.SetActive(true);
-        StartCoroutine(HideKillEnemiesPromptAfterDelay(2f)); // Show prompt for 2 seconds
+        StartCoroutine(HidePromptAfterDelay(2f));
     }
 
     private void ShowExitPrompt()
     {
         if (exitPromptText != null) exitPromptText.SetActive(true);
-        StartCoroutine(HideExitPromptAfterDelay(3f)); // Show exit prompt for 3 seconds
+        StartCoroutine(HidePromptAfterDelay(3f));
     }
 
     private IEnumerator HidePromptAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         if (promptText != null) promptText.SetActive(false);
-    }
-
-    private IEnumerator HideKillEnemiesPromptAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
         if (promptTextToKillEnemy != null) promptTextToKillEnemy.SetActive(false);
+        if (exitPromptText != null) exitPromptText.SetActive(false);
     }
 
-    private IEnumerator HideExitPromptAfterDelay(float delay)
+    private void CompleteCoinTask()
     {
-        yield return new WaitForSeconds(delay);
-        if (exitPromptText != null) exitPromptText.SetActive(false);
+        Debug.Log("coins: " + playerInventory.NumberOfCoins);
+        if (playerInventory.NumberOfCoins == 20)
+        {
+            isAllCoinsCollected = true;
+        }
+    }
+
+    public void CompleteKillTask()
+    {
+        isThreeEnemiesDefeated = true;
     }
 }

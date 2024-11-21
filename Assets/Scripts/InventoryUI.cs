@@ -7,8 +7,9 @@ public class InventoryUI : MonoBehaviour
 {
     private TextMeshProUGUI coinsText;
     private TextMeshProUGUI EnemyText;
+    public EscapeTrigger escapeTrigger;
 
-    private int enemyKillCount = 0;     // Counter for killed enemies
+    public int enemyKillCount = 0;    // Counter for killed enemies
     
     void Start()
     {
@@ -23,9 +24,19 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateEnemyCount()
     {
+        Debug.Log("killed" + enemyKillCount);
         // Increment the kill count and update the enemy text
         enemyKillCount++;
         EnemyText.text = $"{enemyKillCount}";
+        if (enemyKillCount >= 3)
+        {
+            escapeTrigger.CompleteKillTask();
+        }
+        else
+        {
+            
+        }
+
     }
 
     public int GetEnemyKillCount()

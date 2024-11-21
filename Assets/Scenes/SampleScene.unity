@@ -2903,6 +2903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb16e12f0e0814a47b3b08d9f4afc713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escapeTrigger: {fileID: 1675199227}
+  enemyKillCount: 0
 --- !u!114 &266627447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3081,6 +3083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb16e12f0e0814a47b3b08d9f4afc713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escapeTrigger: {fileID: 1675199227}
+  enemyKillCount: 0
 --- !u!114 &281680378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17580,6 +17584,7 @@ MonoBehaviour:
   promptText: {fileID: 245922617}
   exitPromptText: {fileID: 1608531111}
   promptTextToKillEnemy: {fileID: 428183549}
+  playerInventory: {fileID: 1734265699844378584}
 --- !u!65 &1675199228
 BoxCollider:
   m_ObjectHideFlags: 0

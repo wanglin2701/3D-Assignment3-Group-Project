@@ -100,9 +100,11 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0 && !isDead)
         {
             isDead = true;
-            InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+            InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();                
+            Debug.Log("null/");
             if (inventoryUI != null)
             {
+                Debug.Log("counttt");
                 inventoryUI.UpdateEnemyCount();
             }
             TriggerDeathAnimation(); // Start the death animation
@@ -183,4 +185,5 @@ public class EnemyHealth : MonoBehaviour
         gameObject.SetActive(false); // Deactivate the enemy GameObject
         
     }
+
 }
