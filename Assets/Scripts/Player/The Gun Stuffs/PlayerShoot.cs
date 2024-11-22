@@ -62,6 +62,9 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
+        // Prevent shooting if the game is paused
+        if (Time.timeScale == 0f) return;
+        
         // Check aiming state
         if (Input.GetMouseButton(1)) // Right mouse button for aiming
         {

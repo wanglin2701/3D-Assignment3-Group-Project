@@ -9151,7 +9151,7 @@ MonoBehaviour:
     loop: 0
   - name: Walking
     clip: {fileID: 8300000, guid: c7ece2231f993f7429e8e08a24e02650, type: 3}
-    volume: 0.8
+    volume: 2
     loop: 0
   - name: OpenDoor
     clip: {fileID: 8300000, guid: ba5f993836eedf34da18db0fe02e2894, type: 3}
@@ -9179,11 +9179,11 @@ MonoBehaviour:
     loop: 0
   - name: Sprinting
     clip: {fileID: 8300000, guid: 44542b3c00c9a6347b8e4403d86f2fba, type: 3}
-    volume: 0.9
+    volume: 2
     loop: 0
   - name: Crouching
     clip: {fileID: 8300000, guid: 43c757292669a474f8f27410f7e29aa1, type: 3}
-    volume: 1.5
+    volume: 2
     loop: 0
   - name: Jumping
     clip: {fileID: 8300000, guid: 225ecc80247b6034b857d8ca93668545, type: 3}
